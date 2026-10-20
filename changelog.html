@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#0e0f10; color:#c7cbd2;
+    font-family:'Segoe UI',sans-serif; font-size:13px;
+    padding:6px; line-height:1.6;
+  }
+  #langbar { display:flex; gap:6px; margin-bottom:12px; }
+  .lb {
+    font-family:'Segoe UI',sans-serif; font-size:10px; font-weight:700;
+    padding:3px 10px; border-radius:10px; cursor:pointer;
+    background:rgba(210,112,118,.10); color:#8a8f97;
+    border:1px solid rgba(210,112,118,.25);
+  }
+  .lb:hover { color:#d8a0a6; border-color:rgba(210,112,118,.5); }
+  .lb.active {
+    background:rgba(210,112,118,.30); color:#f0cdd0;
+    border-color:#d27076;
+  }
+  .lang { display:none; }
+  .ver {
+    display:flex; align-items:center; gap:10px;
+    background:linear-gradient(90deg, rgba(210,112,118,.18), transparent);
+    border:1px solid rgba(210,112,118,.35);
+    border-radius:10px; padding:10px 14px; margin-bottom:14px;
+  }
+  .ver .v { color:#d27076; font-size:16px; font-weight:700; }
+  .ver .d { color:#9aa0a8; font-size:11px; }
+  h2 {
+    color:#d27076; font-size:14px; margin:16px 0 10px;
+    padding-bottom:6px; border-bottom:1px solid #262a30;
+  }
+  .item { display:flex; gap:8px; margin-bottom:8px; align-items:flex-start; }
+  .chip {
+    font-size:9px; font-weight:700; padding:2px 8px;
+    border-radius:5px; flex-shrink:0; margin-top:2px;
+    letter-spacing:.4px;
+  }
+  .new      { background:rgba(110,231,160,.15);  color:#6ee7a0; }
+  .fix      { background:rgba(248,113,113,.15);  color:#f87171; }
+  .improved { background:rgba(125,184,240,.15);  color:#7db8f0; }
+  .removed  { background:rgba(154,160,168,.15);  color:#9aa0a8; }
+  .feat { margin-bottom:11px; }
+  .feat-head { display:flex; gap:8px; align-items:center; margin-bottom:1px; }
+  .feat-head b { color:#e8b9bd; font-size:13px; }
+  .feat-desc { color:#9aa0a8; font-size:12px; padding-left:8px; }
+  .warn {
+    background:#141619; border-left:3px solid #f0b45c;
+    padding:10px 12px; border-radius:0 8px 8px 0; margin:12px 0;
+    font-size:12px; color:#e8d9b8;
+  }
+  .warn b { color:#f0b45c; }
+  .note {
+    background:#141619; border-left:3px solid #a4525a;
+    padding:10px 12px; border-radius:0 8px 8px 0; margin:12px 0;
+    font-size:12px; color:#9aa0a8;
+  }
+  .tags { margin:4px 0 8px 8px; }
+  .tag {
+    display:inline-block; font-size:10px; font-weight:600;
+    background:rgba(210,112,118,.12); color:#d8a0a6;
+    border:1px solid rgba(210,112,118,.3);
+    padding:2px 8px; border-radius:10px; margin:2px 2px 2px 0;
+  }
+  a { color:#d27076; text-decoration:none; }
+  ::-webkit-scrollbar { width:8px; }
+  ::-webkit-scrollbar-thumb { background:#3a3f47; border-radius:4px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+</style>
+</head>
+<body>
+
+<div id="langbar">
+  <button class="lb" data-l="es" onclick="showLang('es')">ES</button>
+  <button class="lb" data-l="en" onclick="showLang('en')">EN</button>
+  <button class="lb" data-l="fr" onclick="showLang('fr')">FR</button>
+  <button class="lb" data-l="it" onclick="showLang('it')">IT</button>
+  <button class="lb" data-l="pt" onclick="showLang('pt')">PT</button>
+</div>
+
+<!-- ============================ ESPAÑOL ============================ -->
+<div class="lang" id="l-es">
+
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Actualización mayor — Loader + DS4Windows + Extensión</span>
+</div>
+
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">MEJORA</span> Ventana de actualización rediseñada — interfaz moderna</div>
+<div class="item"><span class="chip improved">MEJORA</span> Botones del programa renombrados</div>
+<div class="item"><span class="chip improved">MEJORA</span> Video Guides remodelado</div>
+<div class="item"><span class="chip improved">MEJORA</span> Changelog con nuevo formato — cada update más fácil de leer</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip fix">FIX</span><b>Config Vault</b></div>
+  <div class="feat-desc">Ya no congela el loader — ahora corre en un hilo separado</div>
+</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botón PS4-PS5 de DS4 de otros vendedores</div>
+
+<h2>🎮 Panel IA DS4 Engine</h2>
+<div class="item"><span class="chip new">NUEVO</span> Nuevo botón <b>IA DS4 EVOLVE</b></div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botones innecesarios del panel privado</div>
+
+<h2>⚙️ DS4Windows</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MEJORA</span><b>ONNX</b></div>
+  <div class="feat-desc">Con ONNX apagado ya no se carga ninguna DLL relacionada — arranque más limpio</div>
+</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Anti-captura eliminada de DS4Windows y de la ventana F6</div>
+<div class="item"><span class="chip new">NUEVO</span> Nuevo perfil en la extensión: <b>JK KiNG VortexAiM</b></div>
+
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">MEJORA</span> El macro <b>CircleShake</b> ahora es <b>Rotational Aim Effects</b></div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>19 efectos rotacionales</b></div>
+  <div class="feat-desc">Dos ComboBox — selecciona un efecto para el stick izquierdo y otro para el derecho</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MEJORA</span><b>JK KiNG AiM - Color/Pixel Hunter</b></div>
+  <div class="feat-desc">El trackeo ahora se combina con los efectos rotacionales</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>Aim Assist Mods</b></div>
+  <div class="feat-desc">Nuevos efectos dentro del macro:</div>
+  <div class="tags">
+    <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>Selector de resolución</b></div>
+  <div class="feat-desc">En Color/Pixel Hunter elige la resolución que usas:</div>
+  <div class="tags">
+    <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Híbrido (detección automática)</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MEJORA</span><b>JK KiNG ColorHunter</b></div>
+  <div class="feat-desc">El primer perfil de la extensión también recibió Rotational Aim Effects con los 19 efectos para ambos sticks</div>
+</div>
+
+<div class="warn">
+  ⚠️ <b>IMPORTANTE:</b> El aim ahora puede sentirse más fuerte — recomendable reajustar la fuerza.
+  Baja el <b>Aim Multiplier</b> (viene en 5) hasta encontrar tu punto.
+</div>
+
+<h2>🖥️ Interfaz F6</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>Enable Square FOV 4 Side</b></div>
+  <div class="feat-desc">Recorta la detección solo del lado que quieras. Ideal en multijugador: recorta solo la parte de abajo para evitar banderas u objetos en el suelo</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>Anti-Flag</b></div>
+  <div class="feat-desc">Nuevo método para multijugador — evita objetos en el suelo. Está en pruebas y se irá mejorando</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUEVO</span><b>Ignored Colors (TOL)</b></div>
+  <div class="feat-desc">En el botón COLOR — ignora falsas detecciones cercanas a tu color. En camino: un calibrador para exportar tu perfil listo</div>
+</div>
+<div class="item"><span class="chip improved">MEJORA</span> Scroll bar agregado en los botones AIM y COLOR para ver los nuevos paneles</div>
+
+<div class="note">
+  📌 Recuerda: esto es trackeo de color — trackea cualquier cosa del mismo color ajustado, no solo al personaje.
+  Es una ventaja, no magia. Los nuevos métodos son pruebas que iremos puliendo juntos.<br><br>
+  💾 El update se descarga como <b>UPDATENEW.zip</b> junto al loader. Guarda tus perfiles antes de actualizar.
+</div>
+
+</div>
+
+<!-- ============================ ENGLISH ============================ -->
+<div class="lang" id="l-en">
+
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Major update — Loader + DS4Windows + Extension</span>
+</div>
+
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">IMPROVED</span> Redesigned update window — modern interface</div>
+<div class="item"><span class="chip improved">IMPROVED</span> Program buttons renamed</div>
+<div class="item"><span class="chip improved">IMPROVED</span> Video Guides redesigned</div>
+<div class="item"><span class="chip improved">IMPROVED</span> Changelog with a new format — easier to read each update</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip fix">FIX</span><b>Config Vault</b></div>
+  <div class="feat-desc">No longer freezes the loader — it now runs on a separate thread</div>
+</div>
+<div class="item"><span class="chip removed">REMOVED</span> PS4-PS5 button for third-party DS4 (no longer needed)</div>
+
+<h2>🎮 AI DS4 Engine Panel</h2>
+<div class="item"><span class="chip new">NEW</span> New <b>AI DS4 EVOLVE</b> button</div>
+<div class="item"><span class="chip removed">REMOVED</span> Unnecessary buttons from the private panel</div>
+
+<h2>⚙️ DS4Windows</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">IMPROVED</span><b>ONNX</b></div>
+  <div class="feat-desc">With ONNX off, no related DLLs are loaded — cleaner startup</div>
+</div>
+<div class="item"><span class="chip removed">REMOVED</span> Anti-capture removed from DS4Windows and the F6 window</div>
+<div class="item"><span class="chip new">NEW</span> New extension profile: <b>JK KiNG VortexAiM</b></div>
+
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">IMPROVED</span> The <b>CircleShake</b> macro is now <b>Rotational Aim Effects</b></div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>19 rotational effects</b></div>
+  <div class="feat-desc">Two ComboBoxes — pick an effect for the left stick and another for the right stick</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">IMPROVED</span><b>JK KiNG AiM - Color/Pixel Hunter</b></div>
+  <div class="feat-desc">Tracking now combines with the rotational effects</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>Aim Assist Mods</b></div>
+  <div class="feat-desc">New effects inside the macro:</div>
+  <div class="tags">
+    <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>Resolution selector</b></div>
+  <div class="feat-desc">In Color/Pixel Hunter, choose the resolution you use:</div>
+  <div class="tags">
+    <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Hybrid (auto-detect)</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">IMPROVED</span><b>JK KiNG ColorHunter</b></div>
+  <div class="feat-desc">The extension's first profile also got Rotational Aim Effects with all 19 effects for both sticks</div>
+</div>
+
+<div class="warn">
+  ⚠️ <b>IMPORTANT:</b> Aim may now feel stronger — we recommend readjusting the strength.
+  Lower the <b>Aim Multiplier</b> (defaults to 5) until it feels right.
+</div>
+
+<h2>🖥️ F6 Interface</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>Enable Square FOV 4 Side</b></div>
+  <div class="feat-desc">Crop detection to only the side you want. Ideal in multiplayer: crop just the bottom part to avoid flags or objects on the ground</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>Anti-Flag</b></div>
+  <div class="feat-desc">New method for multiplayer — avoids objects on the ground. In testing, it will keep improving</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NEW</span><b>Ignored Colors (TOL)</b></div>
+  <div class="feat-desc">In the COLOR button — ignores false detections close to your color. Coming soon: a calibrator to export a ready profile</div>
+</div>
+<div class="item"><span class="chip improved">IMPROVED</span> Scroll bar added to the AIM and COLOR buttons to view the new panels</div>
+
+<div class="note">
+  📌 Remember: this is color tracking — it tracks anything matching the configured color, not just the character.
+  It's an advantage, not magic. The new methods are in testing and we'll keep polishing them together.<br><br>
+  💾 The update downloads as <b>UPDATENEW.zip</b> next to the loader. Save your profiles before updating.
+</div>
+
+</div>
+
+<!-- ============================ FRANÇAIS ============================ -->
+<div class="lang" id="l-fr">
+
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Mise à jour majeure — Loader + DS4Windows + Extension</span>
+</div>
+
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> Fenêtre de mise à jour redesignée — interface moderne</div>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> Boutons du programme renommés</div>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> Video Guides repensé</div>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> Changelog au nouveau format — chaque mise à jour plus facile à lire</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip fix">FIX</span><b>Config Vault</b></div>
+  <div class="feat-desc">Ne fige plus le loader — il fonctionne désormais dans un thread séparé</div>
+</div>
+<div class="item"><span class="chip removed">SUPPRIMÉ</span> Bouton PS4-PS5 des DS4 d'autres vendeurs</div>
+
+<h2>🎮 Panneau IA DS4 Engine</h2>
+<div class="item"><span class="chip new">NOUVEAU</span> Nouveau bouton <b>IA DS4 EVOLVE</b></div>
+<div class="item"><span class="chip removed">SUPPRIMÉ</span> Boutons inutiles du panneau privé</div>
+
+<h2>⚙️ DS4Windows</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">AMÉLIORÉ</span><b>ONNX</b></div>
+  <div class="feat-desc">Avec ONNX désactivé, aucune DLL associée n'est chargée — démarrage plus propre</div>
+</div>
+<div class="item"><span class="chip removed">SUPPRIMÉ</span> Anti-capture supprimée de DS4Windows et de la fenêtre F6</div>
+<div class="item"><span class="chip new">NOUVEAU</span> Nouveau profil dans l'extension : <b>JK KiNG VortexAiM</b></div>
+
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> La macro <b>CircleShake</b> devient <b>Rotational Aim Effects</b></div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>19 effets rotationnels</b></div>
+  <div class="feat-desc">Deux ComboBox — choisissez un effet pour le stick gauche et un autre pour le droit</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">AMÉLIORÉ</span><b>JK KiNG AiM - Color/Pixel Hunter</b></div>
+  <div class="feat-desc">Le tracking se combine désormais aux effets rotationnels</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>Aim Assist Mods</b></div>
+  <div class="feat-desc">Nouveaux effets dans la macro :</div>
+  <div class="tags">
+    <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>Sélecteur de résolution</b></div>
+  <div class="feat-desc">Dans Color/Pixel Hunter, choisissez la résolution que vous utilisez :</div>
+  <div class="tags">
+    <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Hybride (détection auto)</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">AMÉLIORÉ</span><b>JK KiNG ColorHunter</b></div>
+  <div class="feat-desc">Le premier profil de l'extension a aussi reçu Rotational Aim Effects avec les 19 effets pour les deux sticks</div>
+</div>
+
+<div class="warn">
+  ⚠️ <b>IMPORTANT :</b> le viseur peut désormais sembler plus fort — nous recommandons de réajuster la force.
+  Baissez l'<b>Aim Multiplier</b> (réglé sur 5) jusqu'à trouver votre réglage.
+</div>
+
+<h2>🖥️ Interface F6</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>Enable Square FOV 4 Side</b></div>
+  <div class="feat-desc">Recadre la détection uniquement du côté voulu. Idéal en multijoueur : recadre seulement le bas pour éviter les drapeaux ou objets au sol</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>Anti-Flag</b></div>
+  <div class="feat-desc">Nouvelle méthode pour le multijoueur — évite les objets au sol. En test, elle sera améliorée</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOUVEAU</span><b>Ignored Colors (TOL)</b></div>
+  <div class="feat-desc">Dans le bouton COLOR — ignore les fausses détections proches de votre couleur. À venir : un calibrateur pour exporter un profil prêt à l'emploi</div>
+</div>
+<div class="item"><span class="chip improved">AMÉLIORÉ</span> Barre de défilement ajoutée aux boutons AIM et COLOR pour voir les nouveaux panneaux</div>
+
+<div class="note">
+  📌 Rappel : c'est du tracking de couleur — il traque tout ce qui correspond à la couleur réglée, pas seulement le personnage.
+  C'est un avantage, pas de la magie. Les nouvelles méthodes sont en test et nous les améliorerons ensemble.<br><br>
+  💾 La mise à jour se télécharge sous <b>UPDATENEW.zip</b> à côté du loader. Sauvegardez vos profils avant de mettre à jour.
+</div>
+
+</div>
+
+<!-- ============================ ITALIANO ============================ -->
+<div class="lang" id="l-it">
+
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Aggiornamento importante — Loader + DS4Windows + Estensione</span>
+</div>
+
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">MIGLIORIA</span> Finestra di aggiornamento ridisegnata — interfaccia moderna</div>
+<div class="item"><span class="chip improved">MIGLIORIA</span> Pulsanti del programma rinominati</div>
+<div class="item"><span class="chip improved">MIGLIORIA</span> Video Guides rinnovato</div>
+<div class="item"><span class="chip improved">MIGLIORIA</span> Changelog con nuovo formato — ogni update più facile da leggere</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip fix">FIX</span><b>Config Vault</b></div>
+  <div class="feat-desc">Non blocca più il loader — ora gira su un thread separato</div>
+</div>
+<div class="item"><span class="chip removed">RIMOSSO</span> Pulsante PS4-PS5 per DS4 di altri venditori</div>
+
+<h2>🎮 Pannello IA DS4 Engine</h2>
+<div class="item"><span class="chip new">NUOVO</span> Nuovo pulsante <b>IA DS4 EVOLVE</b></div>
+<div class="item"><span class="chip removed">RIMOSSO</span> Pulsanti non necessari del pannello privato</div>
+
+<h2>⚙️ DS4Windows</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MIGLIORIA</span><b>ONNX</b></div>
+  <div class="feat-desc">Con ONNX disattivato non viene caricata nessuna DLL correlata — avvio più pulito</div>
+</div>
+<div class="item"><span class="chip removed">RIMOSSO</span> Anti-cattura rimossa da DS4Windows e dalla finestra F6</div>
+<div class="item"><span class="chip new">NUOVO</span> Nuovo profilo nell'estensione: <b>JK KiNG VortexAiM</b></div>
+
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">MIGLIORIA</span> La macro <b>CircleShake</b> ora è <b>Rotational Aim Effects</b></div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>19 effetti rotazionali</b></div>
+  <div class="feat-desc">Due ComboBox — scegli un effetto per lo stick sinistro e uno per il destro</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MIGLIORIA</span><b>JK KiNG AiM - Color/Pixel Hunter</b></div>
+  <div class="feat-desc">Il tracking ora si combina con gli effetti rotazionali</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>Aim Assist Mods</b></div>
+  <div class="feat-desc">Nuovi effetti all'interno della macro:</div>
+  <div class="tags">
+    <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>Selettore di risoluzione</b></div>
+  <div class="feat-desc">In Color/Pixel Hunter scegli la risoluzione che usi:</div>
+  <div class="tags">
+    <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Ibrido (rilevamento automatico)</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MIGLIORIA</span><b>JK KiNG ColorHunter</b></div>
+  <div class="feat-desc">Anche il primo profilo dell'estensione ha ricevuto Rotational Aim Effects con i 19 effetti per entrambi gli stick</div>
+</div>
+
+<div class="warn">
+  ⚠️ <b>IMPORTANTE:</b> la mira ora può risultare più forte — consigliamo di regolare la forza.
+  Abbassa l'<b>Aim Multiplier</b> (impostato su 5) finché non trovi il tuo punto.
+</div>
+
+<h2>🖥️ Interfaccia F6</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>Enable Square FOV 4 Side</b></div>
+  <div class="feat-desc">Ritaglia il rilevamento solo sul lato desiderato. Ideale nel multiplayer: ritaglia solo la parte inferiore per evitare bandiere o oggetti a terra</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>Anti-Flag</b></div>
+  <div class="feat-desc">Nuovo metodo per il multiplayer — evita gli oggetti a terra. In fase di test, verrà migliorato</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NUOVO</span><b>Ignored Colors (TOL)</b></div>
+  <div class="feat-desc">Nel pulsante COLOR — ignora i falsi rilevamenti vicini al tuo colore. In arrivo: un calibratore per esportare un profilo pronto</div>
+</div>
+<div class="item"><span class="chip improved">MIGLIORIA</span> Barra di scorrimento aggiunta ai pulsanti AIM e COLOR per vedere i nuovi pannelli</div>
+
+<div class="note">
+  📌 Ricorda: questo è un tracking di colore — traccia qualsiasi cosa del colore impostato, non solo il personaggio.
+  È un vantaggio, non magia. I nuovi metodi sono in fase di test e li miglioreremo insieme.<br><br>
+  💾 L'aggiornamento si scarica come <b>UPDATENEW.zip</b> accanto al loader. Salva i tuoi profili prima di aggiornare.
+</div>
+
+</div>
+
+<!-- ============================ PORTUGUÊS ============================ -->
+<div class="lang" id="l-pt">
+
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Atualização maior — Loader + DS4Windows + Extensão</span>
+</div>
+
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">MELHORIA</span> Janela de atualização redesenhada — interface moderna</div>
+<div class="item"><span class="chip improved">MELHORIA</span> Botões do programa renomeados</div>
+<div class="item"><span class="chip improved">MELHORIA</span> Video Guides remodelado</div>
+<div class="item"><span class="chip improved">MELHORIA</span> Changelog com novo formato — cada update mais fácil de ler</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip fix">FIX</span><b>Config Vault</b></div>
+  <div class="feat-desc">Não congela mais o loader — agora roda em uma thread separada</div>
+</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botão PS4-PS5 de DS4 de outros vendedores</div>
+
+<h2>🎮 Painel IA DS4 Engine</h2>
+<div class="item"><span class="chip new">NOVO</span> Novo botão <b>IA DS4 EVOLVE</b></div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botões desnecessários do painel privado</div>
+
+<h2>⚙️ DS4Windows</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MELHORIA</span><b>ONNX</b></div>
+  <div class="feat-desc">Com o ONNX desligado, nenhuma DLL relacionada é carregada — inicialização mais limpa</div>
+</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Anti-captura removida do DS4Windows e da janela F6</div>
+<div class="item"><span class="chip new">NOVO</span> Novo perfil na extensão: <b>JK KiNG VortexAiM</b></div>
+
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">MELHORIA</span> O macro <b>CircleShake</b> agora é <b>Rotational Aim Effects</b></div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>19 efeitos rotacionais</b></div>
+  <div class="feat-desc">Dois ComboBox — escolha um efeito para o stick esquerdo e outro para o direito</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MELHORIA</span><b>JK KiNG AiM - Color/Pixel Hunter</b></div>
+  <div class="feat-desc">O tracking agora se combina com os efeitos rotacionais</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>Aim Assist Mods</b></div>
+  <div class="feat-desc">Novos efeitos dentro da macro:</div>
+  <div class="tags">
+    <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>Seletor de resolução</b></div>
+  <div class="feat-desc">No Color/Pixel Hunter, escolha a resolução que você usa:</div>
+  <div class="tags">
+    <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Híbrido (detecção automática)</span>
+  </div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip improved">MELHORIA</span><b>JK KiNG ColorHunter</b></div>
+  <div class="feat-desc">O primeiro perfil da extensão também recebeu Rotational Aim Effects com os 19 efeitos para ambos os sticks</div>
+</div>
+
+<div class="warn">
+  ⚠️ <b>IMPORTANTE:</b> a mira agora pode parecer mais forte — recomendamos reajustar a força.
+  Abaixe o <b>Aim Multiplier</b> (vem em 5) até encontrar seu ponto.
+</div>
+
+<h2>🖥️ Interface F6</h2>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>Enable Square FOV 4 Side</b></div>
+  <div class="feat-desc">Recorta a detecção apenas do lado que você quiser. Ideal no multiplayer: recorte só a parte de baixo para evitar bandeiras ou objetos no chão</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>Anti-Flag</b></div>
+  <div class="feat-desc">Novo método para multiplayer — evita objetos no chão. Em testes, será aprimorado</div>
+</div>
+<div class="feat">
+  <div class="feat-head"><span class="chip new">NOVO</span><b>Ignored Colors (TOL)</b></div>
+  <div class="feat-desc">No botão COLOR — ignora detecções falsas próximas à sua cor. Em breve: um calibrador para exportar seu perfil pronto</div>
+</div>
+<div class="item"><span class="chip improved">MELHORIA</span> Barra de rolagem adicionada aos botões AIM e COLOR para ver os novos painéis</div>
+
+<div class="note">
+  📌 Lembre-se: isso é tracking de cor — ele rastreia qualquer coisa da cor configurada, não apenas o personagem.
+  É uma vantagem, não mágica. Os novos métodos estão em teste e vamos aprimorá-los juntos.<br><br>
+  💾 O update é baixado como <b>UPDATENEW.zip</b> junto ao loader. Salve seus perfis antes de atualizar.
+</div>
+
+</div>
+
+<script>
+function showLang(c){
+  var el = document.getElementById('l-' + c);
+  if(!el) el = document.getElementById('l-es');
+  document.querySelectorAll('.lang').forEach(function(d){ d.style.display = 'none'; });
+  el.style.display = 'block';
+  document.querySelectorAll('.lb').forEach(function(b){
+    b.classList.toggle('active', b.dataset.l === c);
+  });
+}
+showLang('es');
+</script>
+
+</body>
+</html>
