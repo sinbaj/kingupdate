@@ -9,53 +9,109 @@
     font-family:'Segoe UI',sans-serif; font-size:13px;
     padding:6px; line-height:1.6;
   }
+  .ver {
+    display:flex; align-items:center; gap:10px;
+    background:linear-gradient(90deg, rgba(210,112,118,.18), transparent);
+    border:1px solid rgba(210,112,118,.35);
+    border-radius:10px; padding:10px 14px; margin-bottom:14px;
+  }
+  .ver .v { color:#d27076; font-size:16px; font-weight:700; }
+  .ver .d { color:#9aa0a8; font-size:11px; }
   h2 {
-    color:#d27076; font-size:15px; margin:14px 0 10px;
+    color:#d27076; font-size:14px; margin:16px 0 10px;
     padding-bottom:6px; border-bottom:1px solid #262a30;
   }
-  h2:first-child { margin-top:0; }
   .item { display:flex; gap:8px; margin-bottom:8px; align-items:flex-start; }
   .chip {
     font-size:9px; font-weight:700; padding:2px 8px;
     border-radius:5px; flex-shrink:0; margin-top:2px;
+    letter-spacing:.4px;
   }
-  .new      { background:rgba(110,231,160,.15); color:#6ee7a0; }
-  .fix      { background:rgba(248,113,113,.15); color:#f87171; }
-  .improved { background:rgba(125,184,240,.15); color:#7db8f0; }
-  .security { background:rgba(240,180,92,.15);  color:#f0b45c; }
-  img {
-    width:100%; border-radius:10px; margin:8px 0;
-    border:1px solid #262a30;
+  .new      { background:rgba(110,231,160,.15);  color:#6ee7a0; }
+  .fix      { background:rgba(248,113,113,.15);  color:#f87171; }
+  .improved { background:rgba(125,184,240,.15);  color:#7db8f0; }
+  .removed  { background:rgba(154,160,168,.15);  color:#9aa0a8; }
+  .warn {
+    background:#141619; border-left:3px solid #f0b45c;
+    padding:10px 12px; border-radius:0 8px 8px 0; margin:12px 0;
+    font-size:12px; color:#e8d9b8;
   }
-  a { color:#d27076; }
+  .warn b { color:#f0b45c; }
   .note {
     background:#141619; border-left:3px solid #a4525a;
-    padding:10px 12px; border-radius:0 8px 8px 0; margin:10px 0;
+    padding:10px 12px; border-radius:0 8px 8px 0; margin:12px 0;
     font-size:12px; color:#9aa0a8;
   }
+  .tags { margin:4px 0 8px 8px; }
+  .tag {
+    display:inline-block; font-size:10px; font-weight:600;
+    background:rgba(210,112,118,.12); color:#d8a0a6;
+    border:1px solid rgba(210,112,118,.3);
+    padding:2px 8px; border-radius:10px; margin:2px 2px 2px 0;
+  }
+  .sub { color:#e8b9bd; font-weight:600; font-size:12px; margin:10px 0 4px; }
+  ul.plain { margin:4px 0 8px 20px; }
+  ul.plain li { margin-bottom:4px; }
+  a { color:#d27076; text-decoration:none; }
   ::-webkit-scrollbar { width:8px; }
   ::-webkit-scrollbar-thumb { background:#3a3f47; border-radius:4px; }
   ::-webkit-scrollbar-track { background:transparent; }
 </style>
 </head>
 <body>
-
-<h2>🚀 v1.8.9 — Octubre 2026</h2>
-
-<div class="item"><span class="chip new">NEW</span> AI DS4 EVOLVE — nuevos botones en el panel IA DS4 ENGINE</div>
-<div class="item"><span class="chip new">NEW</span> Ventana de activación Premium rediseñada</div>
-<div class="item"><span class="chip improved">IMPROVED</span> Splash screen con anillo animado</div>
-<div class="item"><span class="chip fix">FIX</span> Detección de versión real del loader</div>
-<div class="item"><span class="chip security">SECURITY</span> Verificación de licencia por hardware ID</div>
-
-<img src="https://pub-f422527d1ff241a49519ec986648e480.r2.dev/KiNG-images/JK%20DIAMOND%20fixed.png" alt="preview">
-
-<div class="note">
-  📌 El update se descarga como UPDATENEW.zip junto al loader.
-  Guarda tus perfiles antes de actualizar.
+ 
+<div class="ver">
+  <span class="v">v1.8.9</span>
+  <span class="d">Actualización mayor — Loader + DS4Windows + Extensión</span>
 </div>
-
-<p><a href="https://jk-king-ds4windows.com" target="_blank">→ Ver todos los detalles en la web</a></p>
-
+ 
+<h2>🖥️ Loader</h2>
+<div class="item"><span class="chip improved">MEJORA</span> Ventana de actualización completamente rediseñada — interfaz moderna</div>
+<div class="item"><span class="chip improved">MEJORA</span> Botones del programa renombrados</div>
+<div class="item"><span class="chip improved">MEJORA</span> Video Guides remodelado</div>
+<div class="item"><span class="chip improved">MEJORA</span> Changelog ahora se muestra con formato — cada update más fácil de leer</div>
+<div class="item"><span class="chip fix">FIX</span> <b>Config Vault</b> (donde compartes configuraciones de la extensión) — ya no congela el loader, ahora corre en un hilo separado</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botón PS4-PS5 de DS4 de otros vendedores (ya no necesario)</div>
+ 
+<h2>🎮 Panel IA DS4 Engine</h2>
+<div class="item"><span class="chip new">NUEVO</span> Nuevo botón <b>IA DS4 EVOLVE</b></div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Botones innecesarios del panel privado</div>
+ 
+<h2>⚙️ DS4Windows</h2>
+<div class="item"><span class="chip improved">MEJORA</span> Con <b>ONNX apagado</b> ya no se carga ninguna DLL relacionada — arranque más limpio</div>
+<div class="item"><span class="chip removed">REMOVIDO</span> Anti-captura eliminada de DS4Windows y de la ventana F6</div>
+<div class="item"><span class="chip new">NUEVO</span> Nuevo perfil en la extensión: <b>JK KiNG VortexAiM</b></div>
+ 
+<h2>🎯 JK KiNG VortexAiM</h2>
+<div class="item"><span class="chip improved">MEJORA</span> El macro <b>CircleShake</b> ahora es <b>Rotational Aim Effects</b></div>
+<div class="item"><span class="chip new">NUEVO</span> Dos ComboBox con <b>19 efectos rotacionales</b> — uno para stick izquierdo y otro para el derecho</div>
+<div class="item"><span class="chip improved">MEJORA</span> <b>JK KiNG AiM - Color/Pixel Hunter</b> ahora combina el trackeo con estos efectos</div>
+<div class="item"><span class="chip new">NUEVO</span> Dentro del macro, nuevos efectos <b>Aim Assist Mods</b>:</div>
+<div class="tags">
+  <span class="tag">Pulse</span><span class="tag">Microwave</span><span class="tag">Adaptive</span><span class="tag">Reactive</span><span class="tag">Firesync</span><span class="tag">Humanize</span><span class="tag">Recoil Blend</span>
+</div>
+<div class="item"><span class="chip new">NUEVO</span> ComboBox de resolución en Color/Pixel Hunter:</div>
+<div class="tags">
+  <span class="tag">Full HD</span><span class="tag">2K</span><span class="tag">4K</span><span class="tag">Híbrido (detección automática)</span>
+</div>
+<div class="item"><span class="chip improved">MEJORA</span> El primer perfil <b>JK KiNG ColorHunter</b> también recibió Rotational Aim Effects con los 19 efectos para ambos sticks</div>
+ 
+<div class="warn">
+  ⚠️ <b>IMPORTANTE:</b> El aim ahora puede sentirse más fuerte — recomendable reajustar la fuerza.
+  Baja el <b>Aim Multiplier</b> (viene en 5) hasta encontrar tu punto.
+</div>
+ 
+<h2>🖥️ Interfaz F6</h2>
+<div class="item"><span class="chip new">NUEVO</span> <b>Enable Square FOV 4 Side</b> — recorta la detección solo del lado que quieras. Ideal en multijugador: recorta solo la parte de abajo para evitar banderas u objetos en el suelo</div>
+<div class="item"><span class="chip new">NUEVO</span> Método <b>Anti-Flag</b> para multijugador — evita objetos en el suelo (en pruebas, se irá mejorando)</div>
+<div class="item"><span class="chip new">NUEVO</span> Opciones <b>Ignored Colors (TOL)</b> en el botón COLOR — ignora falsas detecciones cercanas a tu color. En camino: un calibrador para exportar tu perfil listo</div>
+<div class="item"><span class="chip improved">MEJORA</span> Scroll bar agregado en los botones AIM y COLOR para ver los nuevos paneles</div>
+ 
+<div class="note">
+  📌 Recuerda: esto es trackeo de color — trackea cualquier cosa del mismo color ajustado, no solo al personaje.
+  Es una ventaja, no magia. Los nuevos métodos son pruebas que iremos puliendo juntos.<br><br>
+  💾 El update se descarga como <b>UPDATENEW.zip</b> junto al loader. Guarda tus perfiles antes de actualizar.
+</div>
+ 
 </body>
 </html>
